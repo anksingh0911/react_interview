@@ -15,9 +15,13 @@ const Products = () => {
   },[])
 
   const getProducts = async ()=>{
-    const data = await fetch("https://dummyjson.com/products")
-    const json = await data.json()
-    setProductData(json.products)
+    try{
+      const data = await fetch("https://dummyjson.com/products")
+      const json = await data.json()
+      setProductData(json.products)
+    }catch(error){
+      console.log(error.message)
+    }
   }
 
   if(productData?.length === 0 ) return null
