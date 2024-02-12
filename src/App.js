@@ -8,8 +8,10 @@ import UserContextProvider from './Context/UserContextProvider';
 import {ThemeProvider} from './Context/ThemeContext'
 import { useState , useEffect} from 'react';
 import { TodoProvider } from './Context/TodoContext';
-import TodoList from './components/TodoList';
-import { TodoListForm } from './components/TodoListForm';
+import TodoList from './components/Todo/TodoList';
+import { TodoListForm } from './components/Todo/TodoListForm';
+import Carousel from './components/Carousel/Carousel';
+
 
 function App() {
   const [defaultTheme, setDefaultTheme] = useState('light');
@@ -72,9 +74,10 @@ function App() {
         </div>
       </ThemeProvider>
       <TodoProvider value={{todoList, addTodoList, removeTodoList,updateTodoList,isComplete}}>
-          <TodoListForm/>
-          <TodoList data={todoList}/>
+        <TodoListForm/>
+        <TodoList data={todoList}/>
       </TodoProvider>
+      <Carousel/>
     </>
   );
 }
